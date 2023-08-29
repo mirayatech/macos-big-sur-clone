@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
@@ -13,7 +17,7 @@ export const Wrapper = styled.div`
   align-items: center;
   color: white;
   display: flex;
-  font-size: 12px;
+  font-size: 11px;
   gap: 15px;
 
   &:last-child {
@@ -22,8 +26,7 @@ export const Wrapper = styled.div`
 `;
 
 export const IconFlex = styled.div`
-  font-size: 13px;
-  margin-right: 5px;
+  font-size: 12px;
   position: relative;
   cursor: pointer;
 `;
@@ -37,14 +40,15 @@ export const IconFlexItem = styled.div`
   }
 
   &:last-child {
-    top: -2px;
+    top: -2.5px;
     right: -0px;
   }
 `;
 
 export const Icon = styled.span`
   display: flex;
-  font-size: 16px;
+  font-size: 13px;
+  cursor: pointer;
 `;
 
 export const Menu = styled.div`
@@ -93,7 +97,7 @@ export const Grid = styled.div`
   right: -5px;
   width: 250px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
@@ -113,7 +117,7 @@ export const Column = styled.div<{
   font-weight: 600;
   padding: 15px 10px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.204);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
 
