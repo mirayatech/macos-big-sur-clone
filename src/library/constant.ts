@@ -1,4 +1,4 @@
-import { MenuItemType } from "./types";
+import { DockItemType, MenuItemType, ThemeType, WallpaperType } from "./types";
 
 export const TopBarMenu: MenuItemType[] = [
   {
@@ -168,5 +168,75 @@ export const TopBarMenu: MenuItemType[] = [
       "New to Mac? Tour the Basics",
       "Get to know your MacBook",
     ],
+  },
+];
+
+export const DockApp: DockItemType[] = [
+  {
+    name: "Finder",
+    icon: "/dock/finder.png",
+    type: "iframe",
+  },
+  {
+    name: "Calendar",
+    icon: "/dock/calendar.png",
+    type: "iframe",
+  },
+  {
+    name: "Vscode",
+    icon: "/dock/vscode.png",
+    type: "iframe",
+  },
+  {
+    name: "Kindle",
+    icon: "/dock/kindle.png",
+    type: "iframe",
+  },
+  {
+    name: "Message",
+    icon: "/dock/message.png",
+    type: "iframe",
+  },
+  {
+    name: "Mail",
+    icon: "/dock/mail.png",
+    type: "iframe",
+  },
+  {
+    name: "Photos",
+    icon: "/dock/photos.png",
+    type: "iframe",
+  },
+  {
+    name: "Notion",
+    icon: "/dock/notion.png",
+    type: "iframe",
+  },
+  {
+    name: "Setting",
+    icon: "/dock/setting.png",
+    type: "iframe",
+  },
+  {
+    name: "Appstore",
+    icon: "/dock/app-store.png",
+    type: "iframe",
+  },
+  {
+    name: "Caculator",
+    icon: "/dock/caculator.png",
+    type: "iframe",
+  },
+  {
+    name: "Instagram",
+    icon: "/dock/instagram.png",
+    type: "link",
+    link: "https://www.instagram.com/mirayatech",
+  },
+  {
+    name: "Github",
+    icon: "/dock/github.png",
+    type: "link",
+    link: "https://github.com/mirayatech",
   },
 ];
