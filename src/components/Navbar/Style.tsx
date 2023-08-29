@@ -102,7 +102,11 @@ export const Grid = styled.div`
   gap: 10px;
 `;
 
-export const Column = styled.div`
+export const Column = styled.div<{
+  $systemColorPreference?: string;
+  $isAirdropOpen?: boolean;
+  $isAnimationOpen?: boolean;
+}>`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -118,11 +122,21 @@ export const Column = styled.div`
     font-size: 18px;
     padding: 2px;
     border-radius: 50%;
+    background-color: ${(props) =>
+      props.$isAirdropOpen || props.$isAnimationOpen
+        ? props.$systemColorPreference
+        : "transparent"};
+    transition: all 0.2s ease-in-out;
   }
 
-  &:first-child span,
-  &:nth-child(2) span {
-    background-color: #0a85ff;
+  &:first-child,
+  &:nth-child(2) {
+    cursor: pointer;
+  }
+
+  &:first-child svg,
+  &:nth-child(2) svg {
+    color: rgba(0, 0, 0, 0.738);
   }
 
   &:nth-child(3) {
@@ -137,6 +151,7 @@ export const Column = styled.div`
     grid-column: span 2;
   }
 `;
+
 export const ColumnLink = styled.a`
   color: white;
   &:hover {
