@@ -1,26 +1,53 @@
+import { useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
-import { Grid, Column, Colors, ColumnLink } from "./Style";
 import {
   MdMotionPhotosOn,
   MdWifiTethering,
   MdCircle,
   MdOutlineAutoAwesome,
 } from "react-icons/md";
+import { useStore } from "../../library/useStore";
+import { Grid, Column, ColumnLink, Colors } from "./Style";
 
 type NavSelectionProps = {
   setSelectionOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
 export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
+  const { systemColorPreference, setSystemColorPreference } = useStore();
+  const [isAirdropOpen, setIsAirdropOpen] = useState(false);
+  const [isAnimationOpen, setIsAnimationOpen] = useState(false);
+
+  const handleToggleAirdrop = () => {
+    setIsAirdropOpen(!isAirdropOpen);
+  };
+
+  const handleToggleAnimation = () => {
+    setIsAnimationOpen(!isAnimationOpen);
+  };
+
+  const handleColorPreference = (color: string) => {
+    setSystemColorPreference(color);
+  };
+
   return (
     <ClickAwayListener onClickAway={() => setSelectionOpen(false)}>
       <Grid>
-        <Column>
+        <Column
+          $isAirdropOpen={isAirdropOpen}
+          onClick={handleToggleAirdrop}
+          $systemColorPreference={systemColorPreference}
+        >
           <span>
             <MdWifiTethering />
-          </span>{" "}
+          </span>
           Airdrop
         </Column>
-        <Column>
+        <Column
+          $isAnimationOpen={isAnimationOpen}
+          onClick={handleToggleAnimation}
+          $systemColorPreference={systemColorPreference}
+        >
           <span>
             <MdMotionPhotosOn />
           </span>
@@ -29,8 +56,16 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
         <Column>
           System Color
           <Colors>
-            {[1, 2, 3, 4, 5, 6, 7].map((index) => (
-              <span key={index}>
+            {[
+              "#ff9d0a",
+              "#2dcb55",
+              "#66d4ff",
+              "#0a85ff",
+              "#5e5ce6",
+              "#bf5af2",
+              "#ff3860",
+            ].map((color, index) => (
+              <span key={index} onClick={() => handleColorPreference(color)}>
                 <MdCircle />
               </span>
             ))}
