@@ -34,6 +34,10 @@ export function NavMenu({ item }: NavMenuProps) {
           <Icon>
             <FaApple />
           </Icon>
+        ) : item.label === "Finder" ? (
+          <Label>
+            <strong>{item.label}</strong>
+          </Label>
         ) : (
           <Label>{item.label}</Label>
         )}
