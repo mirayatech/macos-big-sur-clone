@@ -62,13 +62,13 @@ export const Dropdown = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  max-width: 50px;
-  min-width: 200px;
+  min-width: 220px;
   padding: 5px;
   position: absolute;
   top: 20px;
 
   span {
+    white-space: nowrap;
     cursor: pointer;
     padding: 5px;
     border-radius: 3px;
