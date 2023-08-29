@@ -6,8 +6,11 @@ import {
 } from "../../library/services";
 import { NavMenu } from "./NavMenu";
 import { Nav, Wrapper, IconFlex, IconFlexItem } from "./Style";
+import { useState } from "react";
+import { NavSelection } from "./NavSelection";
 
 export function Navbar() {
+  const [isSelectionOpen, setSelectionOpen] = useState(false);
   return (
     <Nav>
       <Wrapper>
@@ -18,10 +21,10 @@ export function Navbar() {
 
       <Wrapper>
         <div>
-          <IconFlex>
+          <IconFlex onClick={() => setSelectionOpen(!isSelectionOpen)}>
             <IconFlexItem>
               <MdOutlineToggleOff />
-            </IconFlexItem>{" "}
+            </IconFlexItem>
             <IconFlexItem>
               <MdToggleOn />
             </IconFlexItem>
@@ -29,6 +32,10 @@ export function Navbar() {
         </div>
         <div>{getCurrentFormattedDate()}</div>
         <div>{getCurrentFormattedTime()}</div>
+
+        {isSelectionOpen && (
+          <NavSelection setSelectionOpen={setSelectionOpen} />
+        )}
       </Wrapper>
     </Nav>
   );
