@@ -4,7 +4,7 @@ export const Modal = styled.div<{ $themeColor: string }>`
   padding-top: 50px;
   max-width: 500px;
   position: absolute;
-  top: 200px;
+  top: 300px;
   left: 35%;
   border-radius: 10px;
   overflow-y: auto;
