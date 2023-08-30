@@ -21,7 +21,7 @@ export default function App() {
   `;
 
   const Background = styled.div`
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     top: 0;
     left: 0;
@@ -37,16 +37,21 @@ export default function App() {
     height: 95%;
   `;
 
+  const Folder = styled.img`
+    top: 50px;
+    right: 50px;
+    position: absolute;
+    width: 70px;
+    z-index: -1;
+  `;
+
   return (
     <Container>
-      <Navbar />
-
+      <Navbar /> <Folder src="/folder.png" tabIndex={0} />
       {isSettingOpen && <Setting key="setting" />}
-
       <DockWrapper>
         <Dock />
       </DockWrapper>
-
       <Background />
     </Container>
   );
