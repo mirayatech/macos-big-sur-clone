@@ -14,12 +14,14 @@ import {
 } from "./Style";
 import { NavMenu } from "./NavMenu";
 import { NavSelection } from "./NavSelection";
+import { useThemeStore } from "../../library/useThemeStore";
 
 export function Navbar() {
   const [isSelectionOpen, setSelectionOpen] = useState(false);
+  const { themeColor } = useThemeStore();
 
   return (
-    <NavContainer>
+    <NavContainer $themeColor={themeColor}>
       <Wrapper>
         {TopBarMenu.map((item, index) => (
           <NavMenu item={item} key={index} />

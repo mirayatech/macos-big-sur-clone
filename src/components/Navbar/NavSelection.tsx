@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 import { Grid, Column, ColorCircle, SystemColorPreferenceLink } from "./Style";
 import { useSelectionStore } from "../../library/useSelectionStore";
+import { useThemeStore } from "../../library/useThemeStore";
 
 type NavSelectionProps = {
   setSelectionOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,6 +17,7 @@ type NavSelectionProps = {
 export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
   const { systemColorPreference, setSystemColorPreference } =
     useSelectionStore();
+  const { themeColor } = useThemeStore();
   const [isAirdropOpen, setIsAirdropOpen] = useState(true);
   const [isAnimationOpen, setIsAnimationOpen] = useState(true);
 
@@ -33,8 +35,9 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
 
   return (
     <ClickAwayListener onClickAway={() => setSelectionOpen(false)}>
-      <Grid>
+      <Grid $themeColor={themeColor}>
         <Column
+          $themeColor={themeColor}
           $isAirdropOpen={isAirdropOpen}
           onClick={handleToggleAirdrop}
           $systemColorPreference={systemColorPreference}
@@ -45,6 +48,7 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
           Airdrop
         </Column>
         <Column
+          $themeColor={themeColor}
           $isAnimationOpen={isAnimationOpen}
           onClick={handleToggleAnimation}
           $systemColorPreference={systemColorPreference}
@@ -54,7 +58,7 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
           </span>
           Animations
         </Column>
-        <Column>
+        <Column $themeColor={themeColor}>
           System Color
           <ColorCircle>
             {[
@@ -72,12 +76,13 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
             ))}
           </ColorCircle>
         </Column>
-        <Column>
+        <Column $themeColor={themeColor}>
           <span>
             <MdOutlineAutoAwesome />
           </span>
           <SystemColorPreferenceLink
-            href="https://github.com/mirayatech/macOS-clone"
+            $themeColor={themeColor}
+            href="https://github.com/mirayatech/macos-big-sur-clone"
             target="_blank"
           >
             Created by Miraya Tech

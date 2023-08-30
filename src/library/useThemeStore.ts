@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type GameStateType = {
+type ThemeStateType = {
   themeColor: string;
   setThemeColor: (value: string) => void;
 };
 
-export const useThemeStore = create<GameStateType>()(
+export const useThemeStore = create<ThemeStateType>()(
   persist(
     (set) => ({
       themeColor: "Light",
@@ -14,7 +14,7 @@ export const useThemeStore = create<GameStateType>()(
     }),
 
     {
-      name: "mac-storage",
+      name: "theme-storage",
     }
   )
 );

@@ -16,10 +16,10 @@ import { useThemeStore } from "../../library/useThemeStore";
 export function Setting() {
   const { setSettingOpen } = useSettingStore();
   const { setWallpaper } = useWallpaper();
-  const { setThemeColor } = useThemeStore();
+  const { setThemeColor, themeColor } = useThemeStore();
 
   return (
-    <Modal>
+    <Modal $themeColor={themeColor}>
       <Buttons>
         <span onClick={() => setSettingOpen(false)}>
           <MdOutlineClose />
@@ -35,13 +35,17 @@ export function Setting() {
           <MdCircle />
         </span>
       </Buttons>
-      <Title>System Preference</Title>
+      <Title $themeColor={themeColor}>System Preference</Title>
 
-      <Themes>
+      <Themes $themeColor={themeColor}>
         <h2>Themes</h2>
         <Images>
           {themes.map((theme) => (
-            <Image key={theme.name} onClick={() => setThemeColor(theme.name)}>
+            <Image
+              key={theme.name}
+              onClick={() => setThemeColor(theme.name)}
+              $themeColor={themeColor}
+            >
               <img src={theme.thumbnail} alt="" />
 
               <span>{theme.name}</span>
@@ -49,11 +53,11 @@ export function Setting() {
           ))}
         </Images>
       </Themes>
-      <Wallpapers>
+      <Wallpapers $themeColor={themeColor}>
         <h2>Wallpapers</h2>
         <Images>
           {wallpapers.map((wallpaper) => (
-            <Image key={wallpaper.name}>
+            <Image key={wallpaper.name} $themeColor={themeColor}>
               <img
                 src={wallpaper.url}
                 alt=""

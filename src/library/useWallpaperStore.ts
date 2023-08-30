@@ -9,7 +9,7 @@ type GameStateType = {
 export const useWallpaper = create<GameStateType>()(
   persist(
     (set) => ({
-      wallpaper: "/wallpaper/bigsur-light.jpg",
+      wallpaper: "/wallpaper/mojave.jpeg",
       setWallpaper: (val) => set(() => ({ wallpaper: val })),
     }),
 

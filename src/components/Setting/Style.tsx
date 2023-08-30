@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const Modal = styled.div`
+export const Modal = styled.div<{ $themeColor: string }>`
   padding-top: 50px;
   max-width: 500px;
   position: absolute;
@@ -8,44 +8,48 @@ export const Modal = styled.div`
   left: 35%;
   border-radius: 10px;
   overflow-y: auto;
-  background-color: #1c1c1d;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: ${(props) =>
+    props.$themeColor === "Dark" ? "#1c1c1d" : "white"};
+
+  border: ${(props) =>
+    props.$themeColor === "Dark" ? "1px solid #525257" : "1px solid #a0a0a0"};
+  transition: all 0.2s ease;
 `;
 
-export const Title = styled.span`
-  color: white;
+export const Title = styled.span<{ $themeColor: string }>`
   position: absolute;
   left: 38%;
-
   top: 10px;
   font-size: 12px;
+  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
 `;
 
-export const Themes = styled.div`
+export const Themes = styled.div<{ $themeColor: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
 
   h2 {
-    color: white;
     font-size: 18px;
     text-indent: 20px;
     margin-bottom: 10px;
+    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
   }
 `;
 
-export const Wallpapers = styled.div`
+export const Wallpapers = styled.div<{ $themeColor: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
 
   h2 {
-    color: white;
     font-size: 18px;
     text-indent: 20px;
     margin-bottom: 10px;
+    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
   }
 `;
 
@@ -56,7 +60,7 @@ export const Images = styled.div`
   justify-content: space-evenly;
 `;
 
-export const Image = styled.div`
+export const Image = styled.div<{ $themeColor: string }>`
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -70,10 +74,10 @@ export const Image = styled.div`
   }
 
   span {
-    color: white;
     font-size: 13px;
     text-align: center;
     padding-bottom: 20px;
+    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
   }
 `;
 

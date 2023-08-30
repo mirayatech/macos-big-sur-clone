@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const NavContainer = styled.nav`
-  background: rgba(0, 0, 0, 0.45);
+export const NavContainer = styled.nav<{ $themeColor: string }>`
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   padding: 4px 10px;
+
+  background-color: ${(props) =>
+    props.$themeColor === "Dark" ? "rgba(0, 0, 0, 0.4)" : "rgba(0, 0, 0, 0.3)"};
+  transition: all 0.2s ease;
 `;
 
 export const Wrapper = styled.div`
@@ -50,32 +53,6 @@ export const DateContainer = styled.div`
   position: relative;
 `;
 
-export const SelectionContainer = styled.div`
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  min-width: 220px;
-  padding: 5px;
-  position: absolute;
-  top: 20px;
-
-  span {
-    white-space: nowrap;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 3px;
-  }
-
-  span:hover {
-    background-color: #147ce5;
-  }
-`;
-
 export const DropdownContainer = styled.div`
   position: relative;
 `;
@@ -88,15 +65,12 @@ export const MenuItem = styled.div`
   }
 `;
 
-export const Dropdown = styled.div`
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+export const Dropdown = styled.div<{ $themeColor: string }>`
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 14px;
   min-width: 220px;
   padding: 5px;
   position: absolute;
@@ -112,32 +86,55 @@ export const Dropdown = styled.div`
   span:hover {
     background-color: #147ce5;
   }
+  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+  background-color: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "rgba(0, 0, 0, 0.4)"
+      : "rgba(255, 255, 255, 0.2)"};
+
+  border: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "1px solid rgba(255, 255, 255, 0.3)"
+      : "1px solid rgba(227, 227, 227, 0.3)"};
 `;
 
-export const Divider = styled.div`
-  background-color: rgba(255, 255, 255, 0.3);
+export const Divider = styled.div<{ $themeColor: string }>`
+  background-color: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "rgba(255, 255, 255, 0.3)"
+      : "rgba(0, 0, 0, 0.233)"};
   height: 1px;
   width: 100%;
+
+  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
 `;
 
-export const Grid = styled.div`
+export const Grid = styled.div<{ $themeColor: string }>`
   position: absolute;
   top: 28px;
   right: -5px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: grid;
   gap: 10px;
+
+  background-color: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "rgba(0, 0, 0, 0.4)"
+      : "rgba(255, 255, 255, 0.2)"};
+
+  border: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "1px solid rgba(255, 255, 255, 0.3)"
+      : "1px solid rgba(227, 227, 227, 0.3)"};
 `;
 
 export const Column = styled.div<{
   $systemColorPreference?: string;
   $isAirdropOpen?: boolean;
   $isAnimationOpen?: boolean;
+  $themeColor: string;
 }>`
   display: flex;
   align-items: center;
@@ -145,9 +142,17 @@ export const Column = styled.div<{
   font-weight: 600;
   padding: 15px 10px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.204);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+  background-color: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "rgba(0, 0, 0, 0.4)"
+      : "rgba(255, 255, 255, 0.2)"};
+
+  border: ${(props) =>
+    props.$themeColor === "Dark"
+      ? "1px solid rgba(255, 255, 255, 0.3)"
+      : "1px solid rgba(227, 227, 227, 0.3)"};
+  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
 
   span {
     display: flex;
@@ -168,7 +173,8 @@ export const Column = styled.div<{
 
   &:first-child svg,
   &:nth-child(2) svg {
-    color: rgba(0, 0, 0, 0.738);
+    color: ${(props) =>
+      props.$themeColor === "Dark" ? "rgba(0, 0, 0, 0.738);" : "white"};
   }
 
   &:nth-child(3) {
@@ -185,6 +191,7 @@ export const Column = styled.div<{
 `;
 
 export const ColorCircle = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -217,8 +224,10 @@ export const ColorCircle = styled.div`
   }
 `;
 
-export const SystemColorPreferenceLink = styled.a`
-  color: white;
+export const SystemColorPreferenceLink = styled.a<{
+  $themeColor: string;
+}>`
+  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
   &:hover {
     opacity: 0.8;
   }

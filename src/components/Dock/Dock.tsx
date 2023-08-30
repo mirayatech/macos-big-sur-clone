@@ -3,11 +3,13 @@ import { DockApp } from "../../library/constant";
 import { DockContainer } from "./Style";
 import { AppIcon } from "./AppIcon";
 import { useSettingStore } from "../../library/useSettingStore";
+import { useThemeStore } from "../../library/useThemeStore";
 
 export function Dock() {
   const mouseX = useMotionValue(Infinity);
 
   const { setSettingOpen } = useSettingStore();
+  const { themeColor } = useThemeStore();
 
   const onSettingsClick = () => {
     setSettingOpen(true);
@@ -15,6 +17,7 @@ export function Dock() {
 
   return (
     <DockContainer
+      $themeColor={themeColor}
       onMouseMove={(event) => mouseX.set(event.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
