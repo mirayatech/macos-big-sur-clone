@@ -1,18 +1,25 @@
-import { TopBarMenu } from "../../library/constant";
+import { useState } from "react";
 import { MdOutlineToggleOff, MdToggleOn } from "react-icons/md";
 import {
   getCurrentFormattedDate,
   getCurrentFormattedTime,
 } from "../../library/services";
+import { TopBarMenu } from "../../library/constant";
+import {
+  Wrapper,
+  ToggleIconsContainer,
+  DateContainer,
+  NavContainer,
+  ToggleFlex,
+} from "./Style";
 import { NavMenu } from "./NavMenu";
-import { Nav, Wrapper, IconFlex, IconFlexItem } from "./Style";
-import { useState } from "react";
 import { NavSelection } from "./NavSelection";
 
 export function Navbar() {
   const [isSelectionOpen, setSelectionOpen] = useState(false);
+
   return (
-    <Nav>
+    <NavContainer>
       <Wrapper>
         {TopBarMenu.map((item, index) => (
           <NavMenu item={item} key={index} />
@@ -20,23 +27,21 @@ export function Navbar() {
       </Wrapper>
 
       <Wrapper>
-        <div>
-          <IconFlex onClick={() => setSelectionOpen(!isSelectionOpen)}>
-            <IconFlexItem>
-              <MdOutlineToggleOff />
-            </IconFlexItem>
-            <IconFlexItem>
-              <MdToggleOn />
-            </IconFlexItem>
-          </IconFlex>
-        </div>
-        <div>{getCurrentFormattedDate()}</div>
-        <div>{getCurrentFormattedTime()}</div>
+        <ToggleIconsContainer
+          onClick={() => setSelectionOpen(!isSelectionOpen)}
+        >
+          <ToggleFlex>
+            <MdOutlineToggleOff />
+            <MdToggleOn />
+          </ToggleFlex>
+        </ToggleIconsContainer>
+        <DateContainer>{getCurrentFormattedDate()}</DateContainer>
+        <DateContainer>{getCurrentFormattedTime()}</DateContainer>
 
         {isSelectionOpen && (
           <NavSelection setSelectionOpen={setSelectionOpen} />
         )}
       </Wrapper>
-    </Nav>
+    </NavContainer>
   );
 }

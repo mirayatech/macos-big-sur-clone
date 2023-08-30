@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaApple } from "react-icons/fa";
 import { MenuItemType } from "../../library/types";
-import { Dropdown, Icon, Menu, Divider, Label } from "./Style";
+import { Dropdown, DropdownContainer, MenuItem, Divider } from "./Style";
 
 type NavMenuProps = { item: MenuItemType };
 
@@ -28,20 +28,16 @@ export function NavMenu({ item }: NavMenuProps) {
   }, []);
 
   return (
-    <Menu ref={menuRef}>
-      <div onClick={handleToggleDropdown}>
+    <DropdownContainer ref={menuRef}>
+      <MenuItem onClick={handleToggleDropdown}>
         {item.label === "icon" ? (
-          <Icon>
-            <FaApple />
-          </Icon>
+          <FaApple />
         ) : item.label === "Finder" ? (
-          <Label>
-            <strong>{item.label}</strong>
-          </Label>
+          <strong>{item.label}</strong>
         ) : (
-          <Label>{item.label}</Label>
+          item.label
         )}
-      </div>
+      </MenuItem>
 
       {isDropdownVisible && (
         <Dropdown>
@@ -52,6 +48,6 @@ export function NavMenu({ item }: NavMenuProps) {
           ))}
         </Dropdown>
       )}
-    </Menu>
+    </DropdownContainer>
   );
 }

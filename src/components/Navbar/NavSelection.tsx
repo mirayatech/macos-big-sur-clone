@@ -7,7 +7,7 @@ import {
   MdOutlineAutoAwesome,
 } from "react-icons/md";
 import { useStore } from "../../library/useStore";
-import { Grid, Column, ColumnLink, Colors } from "./Style";
+import { Grid, Column, ColorCircle, SystemColorPreferenceLink } from "./Style";
 
 type NavSelectionProps = {
   setSelectionOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,8 +15,8 @@ type NavSelectionProps = {
 
 export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
   const { systemColorPreference, setSystemColorPreference } = useStore();
-  const [isAirdropOpen, setIsAirdropOpen] = useState(false);
-  const [isAnimationOpen, setIsAnimationOpen] = useState(false);
+  const [isAirdropOpen, setIsAirdropOpen] = useState(true);
+  const [isAnimationOpen, setIsAnimationOpen] = useState(true);
 
   const handleToggleAirdrop = () => {
     setIsAirdropOpen(!isAirdropOpen);
@@ -55,7 +55,7 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
         </Column>
         <Column>
           System Color
-          <Colors>
+          <ColorCircle>
             {[
               "#ff9d0a",
               "#2dcb55",
@@ -69,18 +69,18 @@ export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
                 <MdCircle />
               </span>
             ))}
-          </Colors>
+          </ColorCircle>
         </Column>
         <Column>
           <span>
             <MdOutlineAutoAwesome />
           </span>
-          <ColumnLink
+          <SystemColorPreferenceLink
             href="https://github.com/mirayatech/macOS-clone"
             target="_blank"
           >
             Created by Miraya Tech
-          </ColumnLink>
+          </SystemColorPreferenceLink>
         </Column>
       </Grid>
     </ClickAwayListener>

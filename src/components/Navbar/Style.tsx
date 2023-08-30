@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export const Nav = styled.nav`
+export const NavContainer = styled.nav`
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
   padding: 4px 10px;
@@ -17,7 +15,7 @@ export const Wrapper = styled.div`
   align-items: center;
   color: white;
   display: flex;
-  font-size: 11px;
+  font-size: 13px;
   gap: 15px;
 
   &:last-child {
@@ -25,37 +23,65 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const IconFlex = styled.div`
+export const ToggleIconsContainer = styled.div`
   font-size: 12px;
   position: relative;
   cursor: pointer;
 `;
 
-export const IconFlexItem = styled.div`
-  position: absolute;
-
-  &:first-child {
-    top: -10px;
-    right: -0px;
-  }
-
-  &:last-child {
-    top: -2.5px;
-    right: -0px;
-  }
-`;
-
-export const Icon = styled.span`
-  display: flex;
-  font-size: 13px;
+export const ToggleFlex = styled.div`
+  font-size: 12px;
+  position: relative;
   cursor: pointer;
+
+  svg:first-child {
+    top: -10px;
+    right: 3px;
+    position: absolute;
+  }
+
+  svg:last-child {
+    top: -2.5px;
+    right: 3px;
+    position: absolute;
+  }
 `;
 
-export const Menu = styled.div`
+export const DateContainer = styled.div`
   position: relative;
 `;
 
-export const Label = styled.span`
+export const SelectionContainer = styled.div`
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  min-width: 220px;
+  padding: 5px;
+  position: absolute;
+  top: 20px;
+
+  span {
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+  }
+
+  span:hover {
+    background-color: #147ce5;
+  }
+`;
+
+export const DropdownContainer = styled.div`
+  position: relative;
+`;
+
+export const MenuItem = styled.div`
   cursor: pointer;
 `;
 
@@ -156,14 +182,7 @@ export const Column = styled.div<{
   }
 `;
 
-export const ColumnLink = styled.a`
-  color: white;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-export const Colors = styled.div`
+export const ColorCircle = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -193,5 +212,12 @@ export const Colors = styled.div`
   }
   span:last-child {
     color: #ff3860;
+  }
+`;
+
+export const SystemColorPreferenceLink = styled.a`
+  color: white;
+  &:hover {
+    opacity: 0.8;
   }
 `;
