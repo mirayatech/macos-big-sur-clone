@@ -13,10 +13,6 @@ export function Dock() {
     setSettingOpen(true);
   };
 
-  const onAppClick = () => {
-    console.log("hello");
-  };
-
   return (
     <DockContainer
       onMouseMove={(event) => mouseX.set(event.pageX)}
@@ -28,7 +24,6 @@ export function Dock() {
           item={item}
           mouseX={mouseX}
           onSettingsClick={onSettingsClick}
-          onAppClick={onAppClick}
         />
       ))}
     </DockContainer>

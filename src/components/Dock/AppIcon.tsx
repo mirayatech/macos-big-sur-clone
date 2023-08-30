@@ -6,15 +6,9 @@ type AppIconProps = {
   mouseX: MotionValue;
   item: { name: string; icon: string; type: string; link?: string };
   onSettingsClick?: () => void;
-  onAppClick?: () => void;
 };
 
-export function AppIcon({
-  mouseX,
-  item,
-  onSettingsClick,
-  onAppClick,
-}: AppIconProps) {
+export function AppIcon({ mouseX, item, onSettingsClick }: AppIconProps) {
   const ref = useRef<HTMLImageElement>(null);
 
   const distance = useTransform(mouseX, (val) => {
@@ -32,8 +26,6 @@ export function AppIcon({
   const handleClick = () => {
     if (item.name === "Setting" && onSettingsClick) {
       onSettingsClick();
-    } else if (item.type !== "link" && item.name !== "Setting" && onAppClick) {
-      onAppClick();
     }
   };
 
