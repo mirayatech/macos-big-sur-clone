@@ -1,4 +1,4 @@
-# macOS Big Sur Clone 🍏
+# MacOS Big Sur Clone 🍏
 
 A macOS desktop clone. I created this project out of fascination for the Mac/Apple desktop UI and wanted to try to replicate it as closely as possible, even with the dynamic dock behavior.
 
