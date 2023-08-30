@@ -26,7 +26,9 @@ Start by adding an introductory loading screen, like the one you see on a Mac wi
 
 ## 🎥 Demo/Preview
 
-...
+<img src="https://github.com/mirayatech/macos-big-sur-clone/assets/71933266/94d7f9b9-ef18-4346-b90f-b92fbc12669a" width="100%"/>
+
+
 
 ## 🚦 Running the Project
 
