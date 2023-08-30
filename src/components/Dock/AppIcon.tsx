@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { DockIcon, DockLink } from "./Style";
 import { MotionValue, useSpring, useTransform } from "framer-motion";
+import { DockIcon, DockLink } from "./Style";
 
 type AppIconProps = {
   mouseX: MotionValue;
@@ -19,7 +19,6 @@ export function AppIcon({
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 

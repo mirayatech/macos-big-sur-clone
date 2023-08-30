@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const DockWrapper = styled(motion.div)`
+export const DockContainer = styled(motion.div)`
   margin: 0 auto;
   display: flex;
   height: 4rem;
