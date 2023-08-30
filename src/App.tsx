@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { styled } from "styled-components";
-import { motion } from "framer-motion";
 import { Navbar, Dock, Setting } from "./components";
-import { useStore } from "./library/useStore";
+import { useWallpaper } from "./library/useWallpaperStore";
+import { useSettingStore } from "./library/useSettingStore";
 
 export default function App() {
-  const { isSettingOpen, wallpaper } = useStore();
+  const { wallpaper } = useWallpaper();
+  const { isSettingOpen } = useSettingStore();
 
   const [background, setBackground] = useState(wallpaper);
 
@@ -19,7 +20,7 @@ export default function App() {
     position: relative;
   `;
 
-  const Background = styled(motion.div)`
+  const Background = styled.div`
     z-index: -1;
     position: absolute;
     top: 0;
@@ -46,11 +47,7 @@ export default function App() {
         <Dock />
       </DockWrapper>
 
-      <Background
-        initial={{ opacity: 0.85 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0.85 }}
-      />
+      <Background />
     </Container>
   );
 }
