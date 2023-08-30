@@ -1,4 +1,3 @@
-import { useStore } from "../../library/useStore";
 import { MdCircle, MdOutlineClose, MdMinimize, MdCode } from "react-icons/md";
 import {
   Images,
@@ -10,9 +9,14 @@ import {
   Buttons,
 } from "./Style";
 import { themes, wallpapers } from "../../library/constant";
+import { useSettingStore } from "../../library/useSettingStore";
+import { useWallpaper } from "../../library/useWallpaperStore";
+import { useThemeStore } from "../../library/useThemeStore";
 
 export function Setting() {
-  const { setWallpaper, setThemeColor, setSettingOpen } = useStore();
+  const { setSettingOpen } = useSettingStore();
+  const { setWallpaper } = useWallpaper();
+  const { setThemeColor } = useThemeStore();
 
   return (
     <Modal>

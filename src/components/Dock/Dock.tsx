@@ -1,13 +1,13 @@
 import { useMotionValue } from "framer-motion";
 import { DockApp } from "../../library/constant";
 import { DockContainer } from "./Style";
-import { useStore } from "../../library/useStore";
 import { AppIcon } from "./AppIcon";
+import { useSettingStore } from "../../library/useSettingStore";
 
 export function Dock() {
   const mouseX = useMotionValue(Infinity);
 
-  const { setSettingOpen } = useStore();
+  const { setSettingOpen } = useSettingStore();
 
   const onSettingsClick = () => {
     setSettingOpen(true);

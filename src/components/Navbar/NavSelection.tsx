@@ -6,15 +6,16 @@ import {
   MdCircle,
   MdOutlineAutoAwesome,
 } from "react-icons/md";
-import { useStore } from "../../library/useStore";
 import { Grid, Column, ColorCircle, SystemColorPreferenceLink } from "./Style";
+import { useSelectionStore } from "../../library/useSelectionStore";
 
 type NavSelectionProps = {
   setSelectionOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export function NavSelection({ setSelectionOpen }: NavSelectionProps) {
-  const { systemColorPreference, setSystemColorPreference } = useStore();
+  const { systemColorPreference, setSystemColorPreference } =
+    useSelectionStore();
   const [isAirdropOpen, setIsAirdropOpen] = useState(true);
   const [isAnimationOpen, setIsAnimationOpen] = useState(true);
 
