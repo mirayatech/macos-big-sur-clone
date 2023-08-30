@@ -16,7 +16,7 @@ export function AppIcon({ mouseX, item, onSettingsClick }: AppIconProps) {
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthSync = useTransform(distance, [-150, 0, 150], [60, 100, 60]);
+  const widthSync = useTransform(distance, [-150, 0, 150], [70, 100, 70]);
   const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 150,

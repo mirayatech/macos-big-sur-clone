@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const DockContainer = styled(motion.div)<{ $themeColor: string }>`
   margin: 0 auto;
   display: flex;
-  height: 4rem;
+  height: 4.5rem;
   align-items: end;
   gap: 6px;
   padding: 0 10px;
