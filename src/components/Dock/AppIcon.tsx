@@ -2,13 +2,19 @@ import { useRef } from "react";
 import { DockIcon, DockLink } from "./Style";
 import { MotionValue, useSpring, useTransform } from "framer-motion";
 
+type AppIconProps = {
+  mouseX: MotionValue;
+  item: { name: string; icon: string; type: string; link?: string };
+  onSettingsClick?: () => void;
+  onAppClick?: () => void;
+};
+
 export function AppIcon({
   mouseX,
   item,
-}: {
-  mouseX: MotionValue;
-  item: { name: string; icon: string; type: string; link?: string };
-}) {
+  onSettingsClick,
+  onAppClick,
+}: AppIconProps) {
   const ref = useRef<HTMLImageElement>(null);
 
   const distance = useTransform(mouseX, (val) => {
@@ -24,6 +30,14 @@ export function AppIcon({
     damping: 12,
   });
 
+  const handleClick = () => {
+    if (item.name === "Setting" && onSettingsClick) {
+      onSettingsClick();
+    } else if (item.type !== "link" && item.name !== "Setting" && onAppClick) {
+      onAppClick();
+    }
+  };
+
   if (item.type === "link" && item.link) {
     return (
       <DockLink href={item.link} target="_blank" rel="noopener noreferrer">
@@ -31,6 +45,13 @@ export function AppIcon({
       </DockLink>
     );
   } else {
-    return <DockIcon src={item.icon} ref={ref} style={{ width }} />;
+    return (
+      <DockIcon
+        src={item.icon}
+        ref={ref}
+        style={{ width }}
+        onClick={handleClick}
+      />
+    );
   }
 }
