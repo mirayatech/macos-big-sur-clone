@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import {
+  darkBackgroundColor,
+  darkBorderColor,
+  lightBackgroundColor,
+  lightBorderColor,
+  lightTextColor,
+} from "../../library/constant";
 
 export const NavContainer = styled.nav<{ $themeColor: string }>`
   backdrop-filter: blur(20px);
@@ -9,7 +16,7 @@ export const NavContainer = styled.nav<{ $themeColor: string }>`
   padding: 4px 10px;
 
   background-color: ${(props) =>
-    props.$themeColor === "Dark" ? "rgba(0, 0, 0, 0.4)" : "rgba(0, 0, 0, 0.3)"};
+    props.$themeColor === "Dark" ? darkBackgroundColor : "rgba(0, 0, 0, 0.3)"};
   transition: all 0.2s ease;
 `;
 
@@ -86,16 +93,15 @@ export const Dropdown = styled.div<{ $themeColor: string }>`
   span:hover {
     background-color: #147ce5;
   }
-  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+  color: ${(props) =>
+    props.$themeColor === "Dark" ? "white" : lightTextColor};
   background-color: ${(props) =>
-    props.$themeColor === "Dark"
-      ? "rgba(0, 0, 0, 0.4)"
-      : "rgba(255, 255, 255, 0.2)"};
+    props.$themeColor === "Dark" ? darkBackgroundColor : lightBackgroundColor};
 
   border: ${(props) =>
     props.$themeColor === "Dark"
-      ? "1px solid rgba(255, 255, 255, 0.3)"
-      : "1px solid rgba(227, 227, 227, 0.3)"};
+      ? `1px solid ${darkBorderColor}`
+      : `1px solid ${lightBorderColor}`};
 `;
 
 export const Divider = styled.div<{ $themeColor: string }>`
@@ -106,7 +112,8 @@ export const Divider = styled.div<{ $themeColor: string }>`
   height: 1px;
   width: 100%;
 
-  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+  color: ${(props) =>
+    props.$themeColor === "Dark" ? "white" : lightTextColor};
 `;
 
 export const Grid = styled.div<{ $themeColor: string }>`
@@ -120,14 +127,12 @@ export const Grid = styled.div<{ $themeColor: string }>`
   gap: 10px;
 
   background-color: ${(props) =>
-    props.$themeColor === "Dark"
-      ? "rgba(0, 0, 0, 0.4)"
-      : "rgba(255, 255, 255, 0.2)"};
+    props.$themeColor === "Dark" ? darkBackgroundColor : lightBackgroundColor};
 
   border: ${(props) =>
     props.$themeColor === "Dark"
-      ? "1px solid rgba(255, 255, 255, 0.3)"
-      : "1px solid rgba(227, 227, 227, 0.3)"};
+      ? `1px solid ${darkBorderColor}`
+      : `1px solid ${lightBorderColor}`};
 `;
 
 export const Column = styled.div<{
@@ -144,15 +149,14 @@ export const Column = styled.div<{
   border-radius: 8px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
   background-color: ${(props) =>
-    props.$themeColor === "Dark"
-      ? "rgba(0, 0, 0, 0.4)"
-      : "rgba(255, 255, 255, 0.2)"};
+    props.$themeColor === "Dark" ? "rgba(0, 0, 0, 0.3)" : lightBackgroundColor};
 
   border: ${(props) =>
     props.$themeColor === "Dark"
-      ? "1px solid rgba(255, 255, 255, 0.3)"
-      : "1px solid rgba(227, 227, 227, 0.3)"};
-  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+      ? `1px solid ${darkBorderColor}`
+      : `1px solid ${lightBorderColor}`};
+  color: ${(props) =>
+    props.$themeColor === "Dark" ? "white" : lightTextColor};
 
   span {
     display: flex;
@@ -227,7 +231,8 @@ export const ColorCircle = styled.div`
 export const SystemColorPreferenceLink = styled.a<{
   $themeColor: string;
 }>`
-  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+  color: ${(props) =>
+    props.$themeColor === "Dark" ? "white" : lightTextColor};
   &:hover {
     opacity: 0.8;
   }

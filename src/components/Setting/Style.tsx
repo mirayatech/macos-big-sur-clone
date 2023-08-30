@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { lightTextColor } from "../../library/constant";
 
 export const Modal = styled.div<{ $themeColor: string }>`
   padding-top: 50px;
@@ -10,7 +11,7 @@ export const Modal = styled.div<{ $themeColor: string }>`
   overflow-y: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
-    props.$themeColor === "Dark" ? "#1c1c1d" : "white"};
+    props.$themeColor === "Dark" ? lightTextColor : "white"};
 
   border: ${(props) =>
     props.$themeColor === "Dark" ? "1px solid #525257" : "1px solid #a0a0a0"};
@@ -22,7 +23,8 @@ export const Title = styled.span<{ $themeColor: string }>`
   left: 38%;
   top: 10px;
   font-size: 12px;
-  color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+  color: ${(props) =>
+    props.$themeColor === "Dark" ? "white" : lightTextColor};
 `;
 
 export const Themes = styled.div<{ $themeColor: string }>`
@@ -35,7 +37,8 @@ export const Themes = styled.div<{ $themeColor: string }>`
     font-size: 18px;
     text-indent: 20px;
     margin-bottom: 10px;
-    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+    color: ${(props) =>
+      props.$themeColor === "Dark" ? "white" : lightTextColor};
   }
 `;
 
@@ -49,7 +52,8 @@ export const Wallpapers = styled.div<{ $themeColor: string }>`
     font-size: 18px;
     text-indent: 20px;
     margin-bottom: 10px;
-    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+    color: ${(props) =>
+      props.$themeColor === "Dark" ? "white" : lightTextColor};
   }
 `;
 
@@ -77,7 +81,8 @@ export const Image = styled.div<{ $themeColor: string }>`
     font-size: 13px;
     text-align: center;
     padding-bottom: 20px;
-    color: ${(props) => (props.$themeColor === "Dark" ? "white" : "#1c1c1d")};
+    color: ${(props) =>
+      props.$themeColor === "Dark" ? "white" : lightTextColor};
   }
 `;
 

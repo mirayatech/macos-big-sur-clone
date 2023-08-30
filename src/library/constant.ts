@@ -287,3 +287,10 @@ export const themes: ThemeType[] = [
     attr: "dark",
   },
 ];
+
+export const darkBackgroundColor = "rgba(0, 0, 0, 0.4)";
+export const lightBackgroundColor = "rgba(255, 255, 255, 0.2)";
+export const darkBorderColor = "rgba(255, 255, 255, 0.3)";
+export const lightBorderColor = "rgba(227, 227, 227, 0.3)";
+export const darkTextColor = "white";
+export const lightTextColor = "#1c1c1d";
