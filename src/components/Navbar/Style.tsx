@@ -100,7 +100,7 @@ export const Dropdown = styled.div`
   min-width: 220px;
   padding: 5px;
   position: absolute;
-  top: 20px;
+  top: 25px;
 
   span {
     white-space: nowrap;
@@ -122,9 +122,8 @@ export const Divider = styled.div`
 
 export const Grid = styled.div`
   position: absolute;
-  top: 22px;
+  top: 28px;
   right: -5px;
-  width: 250px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(20px);
