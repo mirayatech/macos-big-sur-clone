@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   align-items: center;
   color: white;
   display: flex;
-  font-size: 13px;
+  font-size: 15px;
   gap: 15px;
 
   &:last-child {
@@ -24,25 +24,24 @@ export const Wrapper = styled.div`
 `;
 
 export const ToggleIconsContainer = styled.div`
-  font-size: 12px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
 `;
 
 export const ToggleFlex = styled.div`
-  font-size: 12px;
   position: relative;
   cursor: pointer;
 
   svg:first-child {
-    top: -10px;
-    right: 3px;
+    top: -12px;
+    right: 5px;
     position: absolute;
   }
 
   svg:last-child {
-    top: -2.5px;
-    right: 3px;
+    top: -4px;
+    right: 5px;
     position: absolute;
   }
 `;
@@ -83,6 +82,10 @@ export const DropdownContainer = styled.div`
 
 export const MenuItem = styled.div`
   cursor: pointer;
+
+  svg {
+    font-size: 18px;
+  }
 `;
 
 export const Dropdown = styled.div`
