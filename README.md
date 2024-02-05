@@ -10,7 +10,7 @@ A macOS desktop clone. I created this project out of fascination for the Mac/App
 - `Zustand`
 - `Framer Motion`
 
-## 🚀 Features
+## 🚀 Features 
 - **Light and Dark Mode:** Seamlessly switch between light and dark themes for a personalized experience.
 - **Custom Background Colors:** Tailor your desktop with the ability to change the background color to suit your style.
 - **System Color Preferences:** Customize your system's color scheme with options like blue, green, orange, and more.
